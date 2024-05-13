@@ -25,9 +25,13 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import {RTC} from './RTC';
+
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+
+console.log('Hello World!');
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -90,8 +94,11 @@ function App(): React.JSX.Element {
             Read the docs to discover what to do next:
           </Section>
           <LearnMoreLinks />
+
+          {/*  */}
         </View>
       </ScrollView>
+      <RTC />
     </SafeAreaView>
   );
 }

@@ -10,8 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@notifee/react-native": "^7.8.2",
+    "chalk": "^4.1.2",
     "react": "18.2.0",
-    "react-native": "0.74.1"
+    "react-native": "0.74.1",
+    "react-native-webrtc": "^118.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
