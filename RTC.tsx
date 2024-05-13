@@ -68,7 +68,7 @@ export function RTC() {
       console.log(chalk.magenta('Received message:'), msg);
     };
 
-    globalThis.ws = ws;
+    (globalThis as any).ws = ws;
 
     return () => {
       console.log(chalk.redBright.bold.bgBlack('Closing connection...'));
@@ -187,7 +187,7 @@ export function RTC() {
       peerConnection.addTrack(track, stream);
     });
 
-    peerConnection.addEventListener('icecandidate', event => {
+    (peerConnection as any).addEventListener('icecandidate', (event: any) => {
       // onicecandidate = event => {
       if (event.candidate) {
         console.log(
@@ -204,7 +204,7 @@ export function RTC() {
       }
     });
 
-    peerConnection.createOffer().then(offer => {
+    peerConnection.createOffer({}).then(offer => {
       peerConnection.setLocalDescription(offer);
       ws.send(
         JSON.stringify({
