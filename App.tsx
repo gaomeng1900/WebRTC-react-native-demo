@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -26,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import {RTC} from './RTC';
+import {Notice} from './Notice';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -98,7 +100,8 @@ function App(): React.JSX.Element {
           {/*  */}
         </View>
       </ScrollView>
-      <RTC />
+      {/* <RTC /> */}
+      <Notice />
     </SafeAreaView>
   );
 }
