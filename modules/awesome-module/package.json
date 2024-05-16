@@ -1,0 +1,9 @@
+{
+  "name": "awesome-module",
+  "version": "0.0.0",
+  "description": "simon's test",
+  "main": "src/index",
+  "author": " <> ()",
+  "license": "UNLICENSED",
+  "homepage": "#readme"
+}

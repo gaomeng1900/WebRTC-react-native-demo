@@ -28,6 +28,7 @@ import {
 
 import {RTC} from './RTC';
 import {Notice} from './Notice';
+// import {multiply, shell} from 'awesome-module';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -37,6 +38,19 @@ console.log('Hello World!');
 
 function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+
+  // console.log('hahahhahah', shell('whoami'));
+
+  // shell(`input tap 757 757`);
+  // shell(`input swipe 100 500 100 300 10`);
+
+  // setTimeout(() => shell('sendevent /dev/input/event1 1 100 500'), 100);
+  // setTimeout(() => shell('sendevent /dev/input/event1 2 100 400'), 200);
+  // setTimeout(() => shell('sendevent /dev/input/event1 2 100 300'), 300);
+  // setTimeout(() => shell('sendevent /dev/input/event1 2 100 200'), 400);
+  // setTimeout(() => shell('sendevent /dev/input/event1 3 100 200'), 500);
+  // setTimeout(() => shell('sendevent /dev/input/event1 0 0 0'), 600);
+
   return (
     <View style={styles.sectionContainer}>
       <Text
